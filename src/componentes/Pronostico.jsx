@@ -12,7 +12,7 @@ function Pronostico({ ciudad, datos, resumen }) {
 
       {resumen != null && (
         <p className="resumen">
-          Esta semana: maxima {resumen.maxima} °C, minima {resumen.minima} °C. El dia mas caluroso es el {resumen.diaCaluroso}.
+          Esta semana: máxima {resumen.maxima} °C, mínima {resumen.minima} °C. El día más caluroso es el {resumen.diaCaluroso}.
         </p>
       )}
 

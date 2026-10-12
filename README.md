@@ -8,7 +8,7 @@
 App en **React + Vite** para buscar cualquier ciudad del mundo y ver el clima de hoy y el pronóstico de los próximos 7 días. Usa la API gratuita de [Open-Meteo](https://open-meteo.com/), que no necesita registro ni API key.
 
 <p align="center">
-  <img src="docs/captura.png" alt="Captura de la app del clima mostrando Cúcuta" width="650">
+  <img src="docs/clima.png" alt="Captura de la app del clima mostrando Cúcuta" width="650">
 </p>
 
 ## ✨ Qué hace

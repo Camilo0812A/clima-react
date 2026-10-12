@@ -34,8 +34,6 @@ function App() {
   const pronostico = useFetch(urlPronostico);
 
   const resumen = useMemo(() => {
-    console.log("calculando resumen");
-
     if (pronostico.datos == null) {
       return null;
     }
