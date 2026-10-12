@@ -3,6 +3,7 @@ import ListaCiudades from "./componentes/ListaCiudades";
 import Pronostico from "./componentes/Pronostico";
 import { useFetch } from "./hooks/useFetch";
 import { useDebounce } from "./hooks/useDebounce";
+import "./App.css";
 
 function App() {
   const [texto, setTexto] = useState("");
@@ -48,27 +49,29 @@ function App() {
   }, [pronostico.datos]);
 
   return (
-    <div>
-      <h1>Clima</h1>
+    <div className="app">
+      <h1>🌦️ Clima</h1>
 
-      <input
-        ref={entrada}
-        value={texto}
-        onChange={(e) => setTexto(e.target.value)}
-        placeholder="Busca una ciudad"
-      />
-      <button onClick={limpiar}>Limpiar</button>
+      <div className="buscador">
+        <input
+          ref={entrada}
+          value={texto}
+          onChange={(e) => setTexto(e.target.value)}
+          placeholder="Busca una ciudad"
+        />
+        <button onClick={limpiar}>Limpiar</button>
+      </div>
 
-      {ciudades.cargando && <p>Buscando…</p>}
-      {ciudades.error && <p>Error: {ciudades.error}</p>}
+      {ciudades.cargando && <p className="mensaje">Buscando…</p>}
+      {ciudades.error && <p className="mensaje error">Error: {ciudades.error}</p>}
       {!ciudades.cargando && !ciudades.error && buscable && lista.length === 0 && (
-        <p>Sin resultados</p>
+        <p className="mensaje">Sin resultados</p>
       )}
 
       <ListaCiudades ciudades={lista} onElegir={setCiudad} />
 
-      {pronostico.cargando && <p>Cargando pronóstico…</p>}
-      {pronostico.error && <p>Error: {pronostico.error}</p>}
+      {pronostico.cargando && <p className="mensaje">Cargando pronóstico…</p>}
+      {pronostico.error && <p className="mensaje error">Error: {pronostico.error}</p>}
       {ciudad != null && pronostico.datos != null && (
         <Pronostico ciudad={ciudad} datos={pronostico.datos} resumen={resumen} />
       )}

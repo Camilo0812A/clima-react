@@ -2,22 +2,28 @@ import { describirClima } from "../clima";
 
 function Pronostico({ ciudad, datos, resumen }) {
   return (
-    <div>
+    <div className="pronostico">
       <h2>{ciudad.name}</h2>
-      <p>
-        {datos.current.temperature_2m} °C · {describirClima(datos.current.weather_code)} · viento {datos.current.wind_speed_10m} km/h
+      <p className="hoy">
+        <span className="temperatura">{datos.current.temperature_2m} °C</span>
+        <span>{describirClima(datos.current.weather_code)}</span>
+        <span className="viento">💨 viento {datos.current.wind_speed_10m} km/h</span>
       </p>
 
       {resumen != null && (
-        <p>
+        <p className="resumen">
           Esta semana: maxima {resumen.maxima} °C, minima {resumen.minima} °C. El dia mas caluroso es el {resumen.diaCaluroso}.
         </p>
       )}
 
-      <ul>
+      <ul className="dias">
         {datos.daily.time.map((fecha, i) => (
           <li key={fecha}>
-            {fecha} · {describirClima(datos.daily.weather_code[i])} · {datos.daily.temperature_2m_min[i]} - {datos.daily.temperature_2m_max[i]} °C
+            <span className="fecha">{fecha}</span>
+            <span>{describirClima(datos.daily.weather_code[i])}</span>
+            <span className="rango">
+              {datos.daily.temperature_2m_min[i]} - {datos.daily.temperature_2m_max[i]} °C
+            </span>
           </li>
         ))}
       </ul>

@@ -1,6 +1,6 @@
 function ListaCiudades({ ciudades, onElegir }) {
   return (
-    <ul>
+    <ul className="ciudades">
       {ciudades.map((ciudad) => (
         <li key={ciudad.id} onClick={() => onElegir(ciudad)}>
           {ciudad.name}, {ciudad.admin1}, {ciudad.country}

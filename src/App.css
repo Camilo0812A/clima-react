@@ -1,0 +1,124 @@
+/* Tarjeta principal */
+.app {
+  max-width: 650px;
+  margin: 0 auto;
+  background-color: white;
+  padding: 30px;
+  border-radius: 16px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* Buscador */
+.buscador {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 15px;
+}
+
+.buscador input {
+  flex: 1;
+}
+
+.mensaje {
+  text-align: center;
+  color: #777;
+}
+
+.mensaje.error {
+  color: #e53935;
+  font-weight: bold;
+}
+
+/* Lista de ciudades encontradas */
+.ciudades {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 20px 0;
+}
+
+.ciudades li {
+  padding: 10px 12px;
+  border-bottom: 1px solid #eee;
+  cursor: pointer;
+}
+
+.ciudades li:hover {
+  background-color: #e3f2fd;
+  color: #1565c0;
+}
+
+/* Pronostico de la ciudad elegida */
+.pronostico {
+  background-color: #f5faff;
+  border: 1px solid #d6eaff;
+  border-radius: 12px;
+  padding: 20px;
+}
+
+.hoy {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 15px;
+  margin: 0 0 15px 0;
+  font-size: 18px;
+}
+
+.temperatura {
+  font-size: 40px;
+  font-weight: bold;
+  color: #1e88e5;
+}
+
+.viento {
+  color: #666;
+  font-size: 15px;
+}
+
+.resumen {
+  background-color: #fff8e1;
+  border-left: 4px solid #ffb300;
+  padding: 10px 12px;
+  margin: 0 0 15px 0;
+  border-radius: 6px;
+}
+
+/* Los 7 dias */
+.dias {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.dias li {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 10px 0;
+  border-bottom: 1px solid #e6eef7;
+}
+
+.dias li:last-child {
+  border-bottom: none;
+}
+
+.fecha {
+  color: #666;
+  width: 100px;
+}
+
+.rango {
+  font-weight: bold;
+  color: #1e3a5f;
+}
+
+/* Para celular */
+@media (max-width: 500px) {
+  .app {
+    padding: 20px;
+  }
+
+  .dias li {
+    flex-wrap: wrap;
+  }
+}
