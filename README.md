@@ -11,6 +11,8 @@ App en **React + Vite** para buscar cualquier ciudad del mundo y ver el clima de
   <img src="docs/clima.png" alt="Captura de la app del clima mostrando Cúcuta" width="650">
 </p>
 
+**Demo en vivo, sin instalar nada:** https://camilo0812a.github.io/clima-react/
+
 ## ✨ Qué hace
 
 - 🔎 **Busca ciudades** mientras escribes (desde 3 letras) y muestra hasta 5 resultados.
