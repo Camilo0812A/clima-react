@@ -3,6 +3,7 @@
 ![React](https://img.shields.io/badge/React-19-61DAFB?logo=react&logoColor=white)
 ![Vite](https://img.shields.io/badge/Vite-8-646CFF?logo=vite&logoColor=white)
 ![API](https://img.shields.io/badge/API-Open--Meteo-FF8C00)
+![CSS](https://img.shields.io/badge/CSS-puro-1572B6?logo=css3&logoColor=white)
 
 App en **React + Vite** para buscar cualquier ciudad del mundo y ver el clima de hoy y el pronóstico de los próximos 7 días. Usa la API gratuita de [Open-Meteo](https://open-meteo.com/), que no necesita registro ni API key.
 
@@ -19,6 +20,7 @@ App en **React + Vite** para buscar cualquier ciudad del mundo y ver el clima de
 - 📈 **Resumen de la semana**: temperatura más alta, más baja y el día más caluroso.
 - 🧹 **Botón Limpiar** que borra la búsqueda y vuelve a poner el cursor en el input.
 - ⏳ Mensajes de *cargando*, *sin resultados* y de error.
+- 🎨 **Diseño propio con CSS** que también se adapta al celular.
 
 ## 🚀 Cómo correrlo
 
@@ -36,6 +38,8 @@ Luego abre la dirección que muestra la terminal (normalmente http://localhost:5
 ```
 src/
 ├── App.jsx                  ← buscador, ciudad elegida y resumen semanal
+├── App.css                  ← estilos de la tarjeta, el buscador y el pronóstico
+├── index.css                ← estilos generales (fondo, botones, inputs)
 ├── clima.js                 ← convierte el código del clima en texto + emoji
 ├── hooks/
 │   ├── useFetch.js          ← pide datos a una URL (con cargando, error y AbortController)
@@ -52,6 +56,7 @@ src/
 - `useMemo` para no recalcular el resumen de la semana en cada render.
 - `useRef` para manejar el foco del input.
 - Consumir una API REST pública y mostrar sus datos.
+- Darle estilo con CSS usando clases, flexbox y una media query para celular.
 
 El proyecto se hizo por pasos (del Paso 1 al Paso 6) y cada paso está en el historial de commits.
 
