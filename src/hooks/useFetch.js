@@ -1,24 +1,15 @@
 import { useState, useEffect } from "react";
 
 export function useFetch(url) {
-  const [datos, setDatos] = useState(null);
-  const [cargando, setCargando] = useState(false);
-  const [error, setError] = useState(null);
+  // Se guarda la url junto con la respuesta para saber a que busqueda pertenece
+  const [resultado, setResultado] = useState({ url: null, datos: null, error: null });
 
   useEffect(() => {
-    if (!url) {
-      setDatos(null);
-      setCargando(false);
-      setError(null);
-      return;
-    }
+    if (!url) return;
 
     const controlador = new AbortController();
 
     async function pedir() {
-      setCargando(true);
-      setError(null);
-
       try {
         const respuesta = await fetch(url, { signal: controlador.signal });
 
@@ -27,12 +18,10 @@ export function useFetch(url) {
         }
 
         const json = await respuesta.json();
-        setDatos(json);
-        setCargando(false);
+        setResultado({ url: url, datos: json, error: null });
       } catch (err) {
         if (err.name === "AbortError") return;
-        setError(err.message);
-        setCargando(false);
+        setResultado({ url: url, datos: null, error: err.message });
       }
     }
 
@@ -41,5 +30,12 @@ export function useFetch(url) {
     return () => controlador.abort();
   }, [url]);
 
-  return { datos, cargando, error };
+  // Si la respuesta guardada es de otra url, todavia se esta cargando la actual
+  const esDeEstaUrl = url != null && resultado.url === url;
+
+  return {
+    datos: esDeEstaUrl ? resultado.datos : null,
+    cargando: url != null && !esDeEstaUrl,
+    error: esDeEstaUrl ? resultado.error : null,
+  };
 }
